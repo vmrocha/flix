@@ -12,6 +12,12 @@
       <p>
         <%= review.comment %>
       </p>
+      <p>
+        <%= link_to "Delete", [@movie, review], class: "button", data: {
+          turbo_method: :delete,
+          turbo_confirm: "Do you really want to delete this movie!?"
+        } %>
+      </p>
     </li>
   <% end %>
 </ul>
