@@ -4,12 +4,10 @@
   </div>
   <div class="details">
     <h1><%= @movie.title %></h1>
-    <h2>
-      <%= year_of(@movie) %> &bull; <%= @movie.rating %>
-    </h2>
-    <p>
-      <%= @movie.description %>
-    </p>
+    <h2><%= year_of(@movie) %> &bull; <%= @movie.rating %></h2>
+    <%= link_to pluralize(@movie.reviews.size, "review"),
+            movie_reviews_path(@movie) %>
+    <p><%= @movie.description %></p>
     <table>
       <tr>
         <th>Director:</th>
