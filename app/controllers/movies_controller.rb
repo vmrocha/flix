@@ -1,4 +1,7 @@
 class MoviesController < ApplicationController
+  before_action :require_signin, except: %i[index show]
+  before_action :require_admin, except: %i[index show]
+
   def index
     @movies = Movie.released
   end
@@ -35,13 +38,23 @@ class MoviesController < ApplicationController
 
   def destroy
     Movie.find(params[:id]).destroy
-    redirect_to movies_url, status: :see_other, alert: "Movie successfully deleted!"
+    redirect_to movies_url,
+                status: :see_other,
+                alert: "Movie successfully deleted!"
   end
 
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :description, :rating, :released_on, :total_gross,
-      :director, :duration, :image_file_name)
+    params.require(:movie).permit(
+      :title,
+      :description,
+      :rating,
+      :released_on,
+      :total_gross,
+      :director,
+      :duration,
+      :image_file_name
+    )
   end
 end
