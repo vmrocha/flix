@@ -189,6 +189,7 @@ section.movie-details {
 
   aside {
     @extend .col-md-2;
+    white-space: nowrap;
   }
 
   h1 {

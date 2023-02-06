@@ -26,6 +26,19 @@
     </table>
     <%= link_to "Write Review", new_movie_review_path(@movie), class: "review" %>
   </div>
+  <aside>
+    <% if @movie.fans.present? %>
+      <h4>Fans</h4>
+      <ul>
+        <% @movie.fans.each do |user| %>
+          <li>
+            <%= profile_image(user, size: 35) %>
+            <%= link_to user.name, user %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </aside>
 </section>
 
 <% if current_user_admin? %>
