@@ -1,7 +1,14 @@
 <section class="movie-details">
   <div class="image">
     <%= image_tag @movie.image_file_name %>
+    <div class="faves">
+      <%= fave_or_unfave_button(@movie, @favorite) %>
+      <div class="count">
+        <%= @movie.fans.size %>
+      </div>
+    </div>
   </div>
+
   <div class="details">
     <h1><%= @movie.title %></h1>
     <h2><%= year_of(@movie) %> &bull; <%= @movie.rating %></h2>
@@ -26,6 +33,7 @@
     </table>
     <%= link_to "Write Review", new_movie_review_path(@movie), class: "review" %>
   </div>
+
   <aside>
     <% if @movie.fans.present? %>
       <h4>Fans</h4>
