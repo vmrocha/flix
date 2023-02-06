@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :users
   get "signup" => "users#new"
+
+  resources :favorites
 end
