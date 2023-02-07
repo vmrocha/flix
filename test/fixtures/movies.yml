@@ -1,11 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  rating: MyString
-  total_gross: 9.99
+  title: "Movie 1"
+  rating: "PG-13"
+  total_gross: 1_223_641_414
+  released_on: 2019-04-20
 
 two:
-  title: MyString
-  rating: MyString
-  total_gross: 9.99
+  title: "Movie 2"
+  rating: "PG-13"
+  total_gross: 1_110_662_849
+  released_on: 2019-03-08
+
+three:
+  title: "Movie 3"
+  rating: "PG-13"
+  total_gross: 1_346_913_161
+  released_on: 2018-04-27
