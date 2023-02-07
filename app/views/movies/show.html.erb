@@ -46,6 +46,14 @@
         <% end %>
       </ul>
     <% end %>
+    <% if @movie.genres.present? %>
+      <h4>Genres</h4>
+      <ul>
+        <% @movie.genres.each do |genre| %>
+          <li><%= genre.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
   </aside>
 </section>
 

@@ -57,7 +57,8 @@ class MoviesController < ApplicationController
       :total_gross,
       :director,
       :duration,
-      :image_file_name
+      :image_file_name,
+      genre_ids: []
     )
   end
 end
