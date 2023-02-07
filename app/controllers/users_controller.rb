@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by!(username: params[:id])
   end
 
   def new
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find_by!(username: params[:id])
     @user.destroy
     session[:user_id] = nil
     redirect_to movies_url,
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def require_correct_user
-    @user = User.find(params[:id])
+    @user = User.find_by!(username: params[:id])
     redirect_to root_url, status: :see_other unless current_user?(@user)
   end
 end

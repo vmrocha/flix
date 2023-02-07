@@ -28,7 +28,7 @@
   <%= f.text_field :image_file_name %>
 
   <div class="checkboxes">
-    <%= f.collection_check_boxes(:genre_ids, Genre.all, :id, :name) %>
+    <%= f.collection_check_boxes(:genre_ids, Genre.all.order(:name), :id, :name) %>
   </div>
 
   <%= f.submit %>
